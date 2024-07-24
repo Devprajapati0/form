@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
         if (response) {
           form.approvedbyregistrar = true;
           await form.save();
-          await sendVerificationEmail(username, 'devheinji@gmail.com', "", false);
+          await sendVerificationEmail(username, process.env.ADMIN_EMAIL!, "", false);
           return NextResponse.json({ response: "Email sent to administrative office. Your request was accepted by the registrar." }, { status: 202 });
         } else {
           await sendVerificationEmail(username, form.email, "Your request for booking the room has been declined.", true);

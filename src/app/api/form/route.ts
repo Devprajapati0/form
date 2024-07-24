@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Send verification email
-        const emailResponse = await sendVerificationEmail(username, 'devprajapati742@gmail.com', "", true);
+        const emailResponse = await sendVerificationEmail(username, process.env.REGISTRAR_EMAIL!, "", true);
         console.log("emailResponse", emailResponse);
 
         return NextResponse.json(
