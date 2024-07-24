@@ -26,13 +26,13 @@ export async function sendVerificationEmail(username: string, email: string, mes
         <p>Regards,</p>
         <p>${username}</p>
       `
-      : `
+      : `  ${message.length < 2 ?`m, 
         <h2>Good Morning,</h2>
         <p>
           There is a request for booking the board room.
         </p>
         <p>PLEASE CHECK AND SEND A RESPONSE.</p>
-        ${message.length < 2 ? `<a href="${link}" style="color: #61dafb;">Verify here</a>` : message}
+       <a href="${link}" style="color: #61dafb;">Verify here</a>` : message}
         <p>Thank you</p>
         <p>Regards,</p>
         <p>${username}</p>

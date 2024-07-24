@@ -35,27 +35,27 @@ export async function POST(request: NextRequest) {
         });
         console.log("book",booking);
 
-        const registrar = await User.findOne({email:"devprajapati742@gmail.com"});
-        const admin = await User.findOne({email:"devheinji@gmail.com"});
-        const user = await User.findOne({email});
+        // const registrar = await User.findOne({email:"devprajapati742@gmail.com"});
+        // const admin = await User.findOne({email:"devheinji@gmail.com"});
+        // const user = await User.findOne({email});
         
         
 
-        if(!registrar || !admin || !user){
-            return NextResponse.json(
-                {
-                    success: false,
-                    message: "No registrar or admin found",
-                    },
-                    { status: 400 }
-                    );
-        }
-        user.formemail = email;
-        await user.save();
-        registrar.formemail = email;
-        await registrar.save();
-        admin.formemail = email;
-        await admin.save();
+        // if(!registrar || !admin || !user){
+        //     return NextResponse.json(
+        //         {
+        //             success: false,
+        //             message: "No registrar or admin found",
+        //             },
+        //             { status: 400 }
+        //             );
+        // }
+        // user.formemail = email;
+        // await user.save();
+        // registrar.formemail = email;
+        // await registrar.save();
+        // admin.formemail = email;
+        // await admin.save();
         // console.log(registrar,admin,user)
 
         if (!booking) {

@@ -5,7 +5,7 @@ interface User extends Document{
     username:string,
     email:string,
     password:string,
-    formemail:string
+    // formemail:string
 }
 
 const userSchema:Schema<User> =new Schema({
@@ -28,10 +28,10 @@ const userSchema:Schema<User> =new Schema({
         min:[6,"password should contain atleast 6 letters"],
         max:[12,"password should contain atleast 6 letters"]
     },
-    formemail:{
-        type:String,
+    // formemail:{
+    //     type:String,
         
-    }
+    // }
 })
 
 export const User = mongoose.models.User as mongoose.Model<User> ||  mongoose.model<User>('User',userSchema)

@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     if (!user) {
         return NextResponse.json({ response: "User not found" }, { status: 404 });
     }
-    const form = await Form.findOne({ email: user.formemail });
+    const form = await Form.findOne({ username });
     if (!form) {
       return NextResponse.json({ response: "Form not found" }, { status: 404 });
     }
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       }
       
 
-      if (form.approvedbyregistrar && !form.approvedbyadminstration && user.email == "devprajapati742@gmail.com" ) {
+      if (form.approvedbyregistrar && !form.approvedbyadminstration) {
         if (response) {
           form.approvedbyadminstration = true;
           await form.save();
